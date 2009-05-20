@@ -17,11 +17,11 @@ And, of course, install the gem:
   
 Done! From now on users with IE version lower than 7.0 will get a nice error message saying that their browsers need to be updated... Ok, ok, not so nice message, you can personalize it by putting an <tt>upgrade.html</tt> file inside the <tt>/public</tt> directory of your application.
 
--- Hey, I need to show localized versions of the message to my french and spanish users! 
+<em>- Hey, I need to show localized versions of the message to my french and spanish users!</em>
 
-No problem, just add <tt>upgrade.es.html</tt> and <tt>upgrade.fr.html</tt> to <tt>/public</tt> (<tt>rack.locale</tt> env variable needs to be set for this to work. <tt>Rack::Locale</tt> in rack-contrib[http://github.com/rack/rack-contrib] can do that)
+No problem, just add <tt>upgrade.es.html</tt> and <tt>upgrade.fr.html</tt> to <tt>/public</tt> (Note that <tt>rack.locale</tt> env variable needs to be previously set for this to work. <tt>Rack::Locale</tt> in rack-contrib[http://github.com/rack/rack-contrib] can do that for you)
 
--- Cool!, what about something more dynamic... like ERB?
+<em>- Cool!, what about something more dynamic... like ERB?</em>
 
 Granted! You'll have to add to the config which template to use. In <tt>environment.rb</tt>:
 
