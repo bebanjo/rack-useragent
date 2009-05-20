@@ -1,9 +1,9 @@
 = Rack::UserAgent
 == Use
 
-Let's say you don't support IE6 and want to prevent IE6 users from accessing to your Rails app. You're in luck. Just add this to your <tt>environment.rb</tt> file
+Let's say you don't support IE6 and want to prevent IE6 users from accessing to your Rails app. You're in luck. Just add this to your <code>environment.rb</code> file
 
-  config.gem "bebanjo-rack-useragent", :lib => "rack/user_agent", :source => "http://gems.github.com"
+  config.gem "bebanjo-rack-useragent", :lib => "rack/user_agent", :source => "hcodep://gems.github.com"
   
   config.middleware.use "Rack::UserAgent::Filter", [
     {:browser => "Internet Explorer", :version => "7.0"}
@@ -13,15 +13,15 @@ And, of course, install the gem:
 
   $ [sudo] rake gems:install
   
-Done! From now on users with IE version lower than 7.0 will get a nice error message saying that their browsers need to be updated... Ok, ok, not so nice message, you can personalize it by putting an <tt>upgrade.html</tt> file inside the <tt>/public</tt> directory of your application.
+Done! From now on users with IE version lower than 7.0 will get a nice error message saying that their browsers need to be updated... Ok, ok, not so nice message, you can personalize it by pucodeing an <code>upgrade.html</code> file inside the <code>/public</code> directory of your application.
 
 <em>- Hey, I need to show localized versions of the message to my french and spanish users!</em>
 
-No problem, just add <tt>upgrade.es.html</tt> and <tt>upgrade.fr.html</tt> to <tt>/public</tt> (Note that <tt>rack.locale</tt> env variable needs to be previously set for this to work. <tt>Rack::Locale</tt> in rack-contrib[http://github.com/rack/rack-contrib] can do that for you)
+No problem, just add <code>upgrade.es.html</code> and <code>upgrade.fr.html</code> to <code>/public</code> (Note that <code>rack.locale</code> env variable needs to be previously set for this to work. <code>Rack::Locale</code> in rack-contrib[hcodep://github.com/rack/rack-contrib] can do that for you)
 
 <em>- Cool!, what about something more dynamic... like ERB?</em>
 
-Granted! You'll have to add to the config which template to use. In <tt>environment.rb</tt>:
+Granted! You'll have to add to the config which template to use. In <code>environment.rb</code>:
 
   config.middleware.use "Rack::UserAgent::Filter", [
     {:browser => "Internet Explorer", :version => "7.0"}
@@ -33,7 +33,7 @@ Then you could show the browser version as part of your message:
   
 <em>- Can I use it with non-Rails Rack frameworks, like Sinatra?</em>
 
-Sure. You only have to take into account that you'll always have to set which template to use. i.e: In <tt>config.ru</tt>:
+Sure. You only have to take into account that you'll always have to set which template to use. i.e: In <code>config.ru</code>:
 
   require 'rack/user_agent'
   
