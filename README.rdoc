@@ -1,4 +1,7 @@
 = Rack::UserAgent
+
+Rack Middleware for filtering by user agent
+
 == Use
 
 Let's say you don't support IE6 and want to prevent IE6 users from accessing to your Rails app. You're in luck. Just add this to your <tt>config/environment.rb</tt>:
