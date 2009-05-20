@@ -1,7 +1,6 @@
 require 'test/unit'
 require 'rubygems'
 require 'mocha'
-require 'context'
 
 require File.dirname(__FILE__) + '/../lib/rack/user_agent'
 
@@ -30,6 +29,13 @@ class UserAgentFilterTest < Test::Unit::TestCase
   
   def test_no_config_given
     filter = Rack::UserAgent::Filter.new(@app)
+    env = {"HTTP_USER_AGENT" => "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)"}
+    response = filter.call(env)
+    assert_equal @app_response, response
+  end
+  
+  def test_no_user_agent
+    filter = Rack::UserAgent::Filter.new(@app, [{:browser => "Internet Explorer", :version => "7.0"}])
     response = filter.call({})
     assert_equal @app_response, response
   end

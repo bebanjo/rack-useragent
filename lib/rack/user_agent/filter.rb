@@ -12,10 +12,9 @@ module Rack::UserAgent
     end
 
     def call(env)
-      if unsupported?(env["HTTP_USER_AGENT"])
-        @browser = UserAgent.parse(env["HTTP_USER_AGENT"])
-        # [200, {"Content-Type" => "text/html"}, [page(env['rack.locale'])]]
-        [400, {"Content-Type" => "text/html"}, page(env['rack.locale'])]
+      browser = UserAgent.parse(env["HTTP_USER_AGENT"]) if env["HTTP_USER_AGENT"]
+      if unsupported?(browser)
+        [400, {"Content-Type" => "text/html"}, page(env['rack.locale'], browser)]
       else
         @app.call(env)
       end
@@ -23,21 +22,23 @@ module Rack::UserAgent
 
     private
 
-    def unsupported?(user_agent)
-      user_agent && @browsers.any? { |browser| UserAgent.parse(user_agent) < OpenStruct.new(browser) }
+    def unsupported?(browser)
+       browser && @browsers.any? { |hash| browser < OpenStruct.new(hash) }
     end
 
-    def page(locale)
-      template_file = template_file(locale)
-      return "Sorry, your browser is not supported. Please upgrade" unless template_file
-      template = ERB.new(File.read(template_file))
-      template.result(binding)
+    def page(locale, browser)
+      return "Sorry, your browser is not supported. Please upgrade" unless template = template_file(locale)
+      @browser = browser # for the template
+      ERB.new(File.read(template)).result(binding)
     end
 
     def template_file(locale)
       candidates = [ @template ]
-      candidates += [ File.join(RAILS_ROOT, "public", "upgrade.#{locale}.html"),
-                      File.join(RAILS_ROOT, "public", "upgrade.html") ] if defined?(RAILS_ROOT)
+      
+      if defined?(RAILS_ROOT)
+        candidates += [ File.join(RAILS_ROOT, "public", "upgrade.#{locale}.html"),
+                        File.join(RAILS_ROOT, "public", "upgrade.html") ] 
+      end
                
       candidates.compact.detect{ |template| File.exists?(template) }
     end
