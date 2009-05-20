@@ -1,9 +1,7 @@
 = Rack::UserAgent
 == Use
 
-Let's say you don't support IE6 and want to prevent IE6 users from accessing to your Rails app. 
-
-You're in luck. Just add this to your <tt>environment.rb</tt> file
+Let's say you don't support IE6 and want to prevent IE6 users from accessing to your Rails app. You're in luck. Just add this to your <tt>environment.rb</tt> file
 
   config.gem "bebanjo-rack-useragent", :lib => "rack/user_agent", :source => "http://gems.github.com"
   
@@ -33,7 +31,7 @@ Then you could show the browser version as part of your message:
 
   Sorry but <%= "#{@browser.browser} #{@browser.version}" %> is not supported
   
--- Can I use it with non-Rails Rack frameworks, like Sinatra?
+<em>- Can I use it with non-Rails Rack frameworks, like Sinatra?</em>
 
 Sure. You only have to take into account that you'll always have to set which template to use. i.e: In <tt>config.ru</tt>:
 
