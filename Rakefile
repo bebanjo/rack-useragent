@@ -21,7 +21,7 @@ begin
     gemspec.homepage = "http://github.com/bebanjo/rack-useragent"
     gemspec.summary = "Rack Middleware for filtering by user agent"
     gemspec.add_dependency('rack', '>= 0.9.1')
-    gemspec.add_dependency('josh-useragent', '= 0.0.2')
+    gemspec.add_dependency('josh-useragent', '0.0.2')
   end
 rescue LoadError
 end
