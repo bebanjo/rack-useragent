@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Sergio Gil", "Luismi Cavall\303\251"]
   s.date = %q{2009-09-16}
   s.email = %q{ballsbreaking@bebanjo.com}
+  s.has_rdoc = true
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
