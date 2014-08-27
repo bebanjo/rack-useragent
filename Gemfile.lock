@@ -1,0 +1,24 @@
+PATH
+  remote: .
+  specs:
+    rack-useragent (0.0.4)
+      bundler (>= 1.3)
+      rack (>= 0.9.1)
+      useragent (>= 0.4.16)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mocha (0.9.8)
+      rake
+    rack (1.6.0)
+    rake (10.3.2)
+    useragent (0.10.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mocha (= 0.9.8)
+  rack-useragent!
+  rake

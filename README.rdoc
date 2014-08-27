@@ -50,9 +50,10 @@ Enjoy it!
 
 * Sergio Gil <sgilperez@gmail.com>
 * Luismi Cavallé <luismi@lmcavalle.com>
+* Paco Guzmán <pacoguzmanp@gmail.com>
 
 == Contributors
 
 We're looking forward for your patches. Fork us!
 
-Copyright (c) 2008 BeBanjo, released under the MIT license
+Copyright (c) 2008-2015 BeBanjo, released under the MIT license
