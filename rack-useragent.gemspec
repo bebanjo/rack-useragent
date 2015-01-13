@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rack-useragent}
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.authors = ["Sergio Gil", "Luismi Cavall\303\251", "Paco Guzmán"]
   s.date = %q{2009-09-16}
