@@ -23,8 +23,7 @@ module Rack::UserAgent
     private
 
     def unsupported?(browser)
-      browser.each { |b| b.instance_eval { @version = UserAgent::Version.new("1.0") } unless browser.version } if browser
-      browser && @browsers.any? { |hash| browser < OpenStruct.new(hash) }
+      browser && !browser.version.nil? && @browsers.any? { |hash| browser < OpenStruct.new(hash) }
     end
 
     def page(locale, browser)
