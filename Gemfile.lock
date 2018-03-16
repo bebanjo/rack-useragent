@@ -11,7 +11,7 @@ GEM
   specs:
     mocha (0.9.8)
       rake
-    rack (1.6.0)
+    rack (1.6.9)
     rake (10.3.2)
     useragent (0.10.0)
 
@@ -22,3 +22,6 @@ DEPENDENCIES
   mocha (= 0.9.8)
   rack-useragent!
   rake
+
+BUNDLED WITH
+   1.16.1
